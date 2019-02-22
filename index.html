@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Giftastic</title>
+</head>
+<body>
+	<div id="buttonHolder">
+		
+	</div>
+	<div id="gifHolder">
+		
+	</div>
+
+	<!-- API KEY : dceT1kvsVI9XpokSJ8V4sJ7uqhQzCgYY -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		var topics = ["bollywood", "hollywood", "animals", "babies", "food", "laziness", "fitness"];
+
+		function createButtons() {
+
+			for (var i=0; i<topics.length; i++){
+				var button = $("<button>"); 
+					
+				button.text(topics[i]);
+					
+				$("#buttonHolder").append(button);
+			}
+		}
+
+		createButtons();
+		
+
+		function addGif(){
+
+			$.ajax({
+		  	url: "https://api.giphy.com/v1/gifs/search?api_key=dceT1kvsVI9XpokSJ8V4sJ7uqhQzCgYY&q=bollywood&limit=25&offset=0&rating=G&lang=en",
+			  method: "GET"
+		}).then(function(response) {
+				for (var i =0; i< response.data.length ; i++) {
+					
+					var imageSrc = response.data[i].images.original_still.url;
+					var image = $("<img>").attr("src", imageSrc);
+								// .attr("width", imageSrc.width)
+								// .attr("height", imageSrc.height);
+					$("#gifHolder").append(image);
+			}
+				
+			});
+		}
+		addGif();
+
+		function createNewGif() {
+
+			$("#buttonHolder button").on('click', function(){
+
+				$("#gifHolder").empty();
+				var buttonText = $(this).text();
+				var qurl = "https://api.giphy.com/v1/gifs/search?api_key=dceT1kvsVI9XpokSJ8V4sJ7uqhQzCgYY&q=" + buttonText + "&limit=25&offset=0&rating=G&lang=en";
+
+				$.ajax({
+					url: qurl,
+					method: 'GET'
+				}).then(function(data){
+					console.log(data);
+					for (var i = 0; i < 10 ; i++) {
+							
+						var newImageSrc = data.data[i].images.original_still.url;
+						var newImage = $("<img>").attr("src", newImageSrc);
+										
+						$("#gifHolder").append(newImage);
+					}
+		
+				});
+			});
+		}
+		createNewGif();
+	</script>
+
+</body>
+</html>
