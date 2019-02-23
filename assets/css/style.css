@@ -1,0 +1,23 @@
+body {
+	text-align: center;
+}
+
+figure {
+	display: inline-block;
+	margin: 1% !important;
+	width: 250px;
+	border: 1px solid #cccccc;
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+}
+
+img:hover {
+	cursor: pointer;	
+}
+
+button {
+	margin: 1%;
+}
+
+input {
+	border: 3px dashed #cccccc;
+}
