@@ -57,8 +57,8 @@ var topics = ["donald duck", "scooby doo", "tweety", "shin chan", "family guy", 
 						figure.attr("class", "card-panel hoverable");
 
 						var heartIcon = $("<i>");
-						heartIcon.attr("class", "small material-icons")
-							     .html("favorite_border");
+						heartIcon.attr("class", "small material-icons emptyHeart")
+							     .html("favorite");
 
 						var figcaption1 = $("<figcaption>");
 						var figcaption2 = $("<figcaption>");
