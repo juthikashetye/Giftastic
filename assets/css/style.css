@@ -1,35 +1,38 @@
 body {
-	text-align: center;
+  text-align: center;
+  margin: 1%;
 }
 
 figure {
-	display: inline-block;
-	margin: 1% !important;
-	width: 300px;
-	border: 1px solid #cccccc;
-	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+  display: inline-block;
+  margin: 1% !important;
+  padding: 0px !important;
+  width: 300px;
+  border: 1px solid #cccccc;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
 }
 
 img:hover {
-	cursor: pointer;	
+  cursor: pointer;
 }
 
 button {
-	margin: 1%;
+  margin: 1%;
 }
 
 input {
-	border: 3px dashed #cccccc;
+  border: 3px dashed #cccccc;
 }
 
-#favHeart {
-	color: red;
+.favHeart {
+  color: red;
 }
 
 .emptyHeart {
-	color: #cccccc;
+  color: #cccccc;
 }
 
 .emptyHeart:hover {
-	color: red;
+  color: red;
+  cursor: pointer;
 }
