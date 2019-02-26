@@ -7,7 +7,7 @@ function createButtons() {
     var button = $("<button>");
 
     button.text(topics[i])
-      .attr("class", "z-depth-3 waves-effect waves-light btn-small");
+          .attr("class", "z-depth-3 waves-effect waves-light btn-small");
 
     $("#buttonHolder").append(button);
   }
@@ -23,7 +23,7 @@ function createUserButtons() {
       var newButton = $("<button>");
       var newButtonText = $("#cartoon").val();
       newButton.text(newButtonText)
-        .attr("class", "z-depth-3 waves-effect waves-light btn-small");
+               .attr("class", "z-depth-3 waves-effect waves-light btn-small");
       if (topics.includes(newButtonText)) {
         return null;
       } else {
@@ -56,7 +56,7 @@ function createGif() {
 
         var heartIcon = $("<i>");
         heartIcon.attr("class", "small material-icons emptyHeart")
-          .html("favorite");
+                 .html("favorite");
 
         var figcaption1 = $("<figcaption>");
         var figcaption2 = $("<figcaption>");
@@ -71,25 +71,15 @@ function createGif() {
         var animateImageSrc = response.data[i].images.original.url;
 
         var image = $("<img>").attr("src", stillImageSrc)
-          .attr("data-state", "still")
-          .attr("data-still", stillImageSrc)
-          .attr("data-animate", animateImageSrc)
-          .attr("class", "responsive-img");
+                              .attr("data-state", "still")
+                              .attr("data-still", stillImageSrc)
+                              .attr("data-animate", animateImageSrc)
+                              .attr("class", "responsive-img");
 
         figure.append(heartIcon);
         figure.append(figcaption1);
         figure.append(image);
         figure.append(figcaption2);
-
-        // var downloadLink = $("<a>");
-        // downloadLink.attr("href",response.data[i].images.original.url)
-        // 	        .attr("download" , "");
-        // var downloadButton = $("<button>");
-        // downloadButton.attr("class", "downloading z-depth-3 waves-effect waves-light btn-small")
-        // 	          .html("Download GIF");
-        // downloadLink.append(downloadButton);
-
-        // figure.append(downloadLink);
 
         $("#gifHolder").append(figure);
 
@@ -100,13 +90,13 @@ function createGif() {
 
           var anim = $(this).attr("data-animate");
           $(this).attr("src", anim)
-            .attr('data-state', 'animate');
+                 .attr('data-state', 'animate');
 
         } else {
 
           var still = $(this).attr('data-still');
           $(this).attr('src', still)
-            .attr('data-state', 'still');
+                 .attr('data-state', 'still');
 
         }
       });
@@ -117,13 +107,13 @@ function createGif() {
 
           var removeFavGifFigure = clickedIcon.parent();
           clickedIcon.removeClass("favHeart favGif")
-            .addClass("emptyHeart");
+                     .addClass("emptyHeart");
           $("#gifHolder").append(removeFavGifFigure);
         } else {
           var favGifFigure = clickedIcon.parent();
 
           clickedIcon.removeClass("emptyHeart")
-            .addClass("favHeart favGif");
+                     .addClass("favHeart favGif");
           $("#favourites").append(favGifFigure);
         }
 
