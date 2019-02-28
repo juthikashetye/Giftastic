@@ -82,7 +82,6 @@ function createGif() {
         figure.append(figcaption2);
 
         $("#gifHolder").append(figure);
-
       }
       $("img").on("click", function() {
         var state = $(this).attr("data-state");
@@ -101,22 +100,36 @@ function createGif() {
         }
       });
 
-      $("i").on("click", function() {
-        var clickedIcon = $(this);
-        if (clickedIcon.hasClass("favGif")) {
+      $("#gifHolder figure i").on("click", function(e){
+          var clickedHeart = $(this);
+          var clickedGifFigure = clickedHeart.parent();
 
-          var removeFavGifFigure = clickedIcon.parent();
-          clickedIcon.removeClass("favHeart favGif")
-                     .addClass("emptyHeart");
-          $("#gifHolder").append(removeFavGifFigure);
-        } else {
-          var favGifFigure = clickedIcon.parent();
+          if (!clickedHeart.hasClass("favHeart")) {
+           e.preventDefault();
+            clickedHeart.addClass("favHeart")
+                        .removeClass("emptyHeart");
+            clickedGifFigure.addClass("favGifFigure redHeartFigure");
+            clickedGifFigure.clone().appendTo("#favourites");
+            clickedGifFigure.removeClass("favGifFigure");
+            
+            $("#favourites figure i").html("delete")
+                                     .addClass("trashIcon");
+          }else{
+            clickedHeart.addClass("emptyHeart")
+                        .removeClass("favHeart");
+            clickedGifFigure.closest(document).find(".favGifFigure").remove();
 
-          clickedIcon.removeClass("emptyHeart")
-                     .addClass("favHeart favGif");
-          $("#favourites").append(favGifFigure);
-        }
+            e.preventDefault();
+          }
 
+          $("#favourites figure i").on("click", function(){
+            var clickedTrash = $(this);
+            var clickedTrashFigure = clickedTrash.parent();
+            clickedTrashFigure.closest(document).find(".redHeartFigure i").removeClass("favHeart")
+                                                                          .addClass("emptyHeart");
+            clickedTrashFigure.remove();
+            e.preventDefault();
+          });
       });
 
     });
