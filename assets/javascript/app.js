@@ -104,10 +104,9 @@ function createGif() {
           var clickedHeart = $(this);
           var clickedGifFigure = clickedHeart.parent();
 
-          if (!clickedHeart.hasClass("favHeart")) {
+          if (!clickedHeart.hasClass("clicked")) {
            e.preventDefault();
-            clickedHeart.addClass("favHeart")
-                        .removeClass("emptyHeart");
+            clickedHeart.addClass("clicked");
             clickedGifFigure.addClass("favGifFigure redHeartFigure");
             clickedGifFigure.clone().appendTo("#favourites");
             clickedGifFigure.removeClass("favGifFigure");
@@ -115,18 +114,19 @@ function createGif() {
             $("#favourites figure i").html("delete")
                                      .addClass("trashIcon");
           }else{
-            clickedHeart.addClass("emptyHeart")
-                        .removeClass("favHeart");
-            clickedGifFigure.closest(document).find(".favGifFigure").remove();
-
+            // clickedHeart.addClass("emptyHeart")
+            //             .removeClass("favHeart");
+            // clickedGifFigure.closest(document).find(".favGifFigure").remove();
+            return null;
             e.preventDefault();
           }
 
           $("#favourites figure i").on("click", function(){
             var clickedTrash = $(this);
             var clickedTrashFigure = clickedTrash.parent();
-            clickedTrashFigure.closest(document).find(".redHeartFigure i").removeClass("favHeart")
-                                                                          .addClass("emptyHeart");
+            // clickedTrashFigure.closest(document).find(".redHeartFigure i").removeClass("favHeart")
+                                                                          // .addClass("emptyHeart");
+
             clickedTrashFigure.remove();
             e.preventDefault();
           });
