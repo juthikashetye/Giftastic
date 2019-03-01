@@ -4,10 +4,28 @@
 
 body {
   text-align: center;
-  margin: 1%;
+  margin: 0px;
   background: linear-gradient(to bottom, #ffcccc 0%, #ffff99 100%);
   background-repeat: no-repeat;
   min-height: 100vh;
+  font-size: 16px;
+}
+
+h1 {
+  background-color: #feda6a;
+  background-image: radial-gradient(circle, #e6b3cc, #feda6a, #ccffcc);
+  text-shadow: 1px 0 0 black, 0 0 5px blue, 0 0 5px #ffffff;
+  padding: 2%;
+  margin-top: 0px;
+  color: #391285;
+  font-family: "Courier", "Times New Roman", monospace;
+  font-weight: bold;
+}
+
+p {
+  color: #47476b;
+  font-family: "Comic Sans MS", Helvetica, monospace;
+  margin-bottom: 1%;
 }
 
 figure {
@@ -18,11 +36,20 @@ figure {
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
 }
 
+img {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
 .card-panel {
   background-color: #FFFAF0;
 }
 
-.favGif:hover, .emptyHeart:hover, #gifHolder .favHeart:hover, img:hover, .trashIcon:hover {
+.favGif:hover,
+.emptyHeart:hover,
+#gifHolder .favHeart:hover,
+img:hover,
+.trashIcon:hover {
   cursor: pointer;
 }
 
@@ -34,15 +61,18 @@ input {
   border: 3px dashed #cccccc;
 }
 
-#gifHolder, #favourites {
-	margin-bottom: 10% !important;
+#gifHolder,
+#favourites {
+  margin-bottom: 10% !important;
 }
 
-.emptyHeart:hover, .favHeart {
+.emptyHeart:hover,
+.favHeart {
   color: red;
 }
 
-.emptyHeart, .trashIcon {
+.emptyHeart,
+.trashIcon {
   color: #cccccc;
 }
 
@@ -50,22 +80,29 @@ input {
   color: #000000;
 }
 
-@media screen and (min-width: 760px) {
-
-	#gifHolder figure {
-		width: 70%;
-	}
+@media screen and (max-width: 640px) {
+  #gifHolder figure {
+    width: 80%;
+  }
   #favourites figure {
-    width: 70%;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  #gifHolder figure {
+    width: 40%;
+  }
+  #favourites figure {
+    width: 50%;
   }
 }
 
 @media screen and (min-width: 980px) {
-
-	#gifHolder figure {
-		width: 30%;
-	}
+  #gifHolder figure {
+    width: 30%;
+  }
   #favourites figure {
-    width: 60%;
+    width: 50%;
   }
 }
