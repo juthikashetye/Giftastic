@@ -5,7 +5,7 @@
 * Click the buttons to see GIFs from that category.
 * Add your own GIF buttons by typing in the input box.
 * Click the grey hearts on GIFs to add them as Favourites.
-* Remove from Favourites by clicking on the red heart of that particular GIF.
+* Remove from Favourites by clicking on the delete icon.
 * The content of the app is completely responsive.
 
 ## About the Code
